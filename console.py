@@ -115,7 +115,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, args):
         """ split arguments into name and parameters """
-        args_list = args.split()
+        args_list = args.split(" ")
         if not args_list:
             print("** class name missing **")
             return
@@ -128,10 +128,11 @@ class HBNBCommand(cmd.Cmd):
         for i in range(1, len(args_list)):
             hippo = args_list[i].split("=")
             try:
-                if hippo[0][1] == '\'':
-                    hippo[1] = hippo[1].replace('\'', '')
-                    hippo[1] = hippo[1].replace('_', ' ')
-                elif '.' in hippo[1]:
+                if hippo[1][0] == "\"":
+                    hippo[1] = hippo[1].replace("\"", "")
+                    hippo[1] = hippo[1].replace("_", " ")
+
+                elif "." in hippo[1]:
                     hippo[1] = float(hippo[1])
                 else:
                     hippo[1] = int(hippo[1])
