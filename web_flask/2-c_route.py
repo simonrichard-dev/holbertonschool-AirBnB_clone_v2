@@ -17,16 +17,10 @@ def hello1():
     return "HBNB"
 
 
-@app.route("/c/is_fun", strict_slashes=False)
-def hello2():
-    """ function that return C is fun"""
-    return "C is fun"
-
-
-@app.route("/c/cool", strict_slashes=False)
-def hello3():
-    """ function that return C cool"""
-    return "C cool"
+@app.route("/c/<text>", strict_slashes=False)
+def hello2(text):
+    """ function that return C then a text variable"""
+    return f"C {escape(text)}"
 
 
 if __name__ == '__main__':
