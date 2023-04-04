@@ -20,7 +20,9 @@ def hello1():
 @app.route("/c/<text>", strict_slashes=False)
 def hello2(text):
     """ function that return C then a text variable"""
-    return f"C {escape(text)}"
+    text = text.replace("_", " ")
+    text = "C {}".format(text)
+    return text
 
 
 if __name__ == '__main__':
