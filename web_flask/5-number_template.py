@@ -53,7 +53,7 @@ def hello5(n):
 @app.route("/number_template/<int:n>", strict_slashes=False)
 def hello6(n):
     """ function that return Python then a text variable"""
-    return render_template ('5-number.html', n=n)
+    return render_template('5-number.html', n=n)
 
 
 if __name__ == '__main__':
